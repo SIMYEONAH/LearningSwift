@@ -49,3 +49,36 @@ print("decimalInteger: \(decimalInteger), binaryInteger: \(binaryInteger), octal
 // 숫자 구분자 (Swift 5.1 이후)
 let largeNumber = 1_000_000_000
 print(largeNumber)
+
+//배열
+func normalizedStarRating(forRating rating: Float, ofPossibleTotal total: Float) -> (Int, String) {
+    let fraction = rating / total
+    let ratingOutOf5 = fraction * 5
+    let rounedRating = round(ratingOutOf5)
+    let numberOfStars = Int(rounedRating)
+    let ratingString = "\(numberOfStars) Star Movie"
+    return (numberOfStars, ratingString)
+}
+
+let ratingAndDisplayString = normalizedStarRating(forRating: 5, ofPossibleTotal: 10)
+let ratingNumber = ratingAndDisplayString.0
+let ratingString = ratingAndDisplayString.1
+print("Rating: \(ratingNumber), Rating String: \(ratingString)")
+
+//배열
+var moviesToWatch: Array<String> = Array()
+moviesToWatch.append("Star Wars")
+moviesToWatch.append("The Lion King")
+moviesToWatch.append("The Incredibles")
+
+print(moviesToWatch)
+print(moviesToWatch[1])
+
+// 배열 새 요소 삽입
+moviesToWatch.insert("The Avengers", at: 1)
+print(moviesToWatch[1])
+let removedItem = moviesToWatch.remove(at: 2)
+print(removedItem) // 삭제된 아이템 반환 값
+print(moviesToWatch[2]) // 뒤에 있던 아이템이 당겨짐
+print(moviesToWatch)
+print(moviesToWatch.count)
